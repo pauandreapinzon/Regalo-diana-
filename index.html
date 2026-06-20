@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Convocatoria para Diana — Muerte por IA · The Jury Experience</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#060810;display:flex;align-items:center;justify-content:center;min-height:100vh;padding:2rem;font-family:'Courier New',Courier,monospace}
+
+@keyframes scan{0%{top:-10%}100%{top:110%}}
+@keyframes stamp-in{0%{transform:rotate(-8deg) scale(2.2);opacity:0}60%{transform:rotate(-8deg) scale(.95);opacity:1}100%{transform:rotate(-8deg) scale(1);opacity:1}}
+@keyframes flicker-txt{0%,100%{opacity:1}92%{opacity:1}93%{opacity:.6}95%{opacity:1}97%{opacity:.7}98%{opacity:1}}
+
+.card{
+  position:relative;
+  background:#0a0c10;
+  border:1px solid #1e2530;
+  max-width:460px;width:100%;
+  padding:2.2rem 2.2rem 1.8rem;
+  text-align:center;
+  color:#c8d0d8;
+  overflow:hidden;
+}
+
+.card::before{
+  content:'';
+  position:absolute;
+  left:0;right:0;height:3px;
+  background:rgba(200,60,60,.07);
+  animation:scan 4s linear infinite;
+  pointer-events:none;
+  z-index:10;
+}
+
+.top-bar{
+  display:flex;align-items:center;justify-content:space-between;
+  margin-bottom:1.3rem;border-bottom:1px solid #1e2530;padding-bottom:.9rem;
+}
+.sys-label{font-size:10px;letter-spacing:.25em;color:#4a5568;text-transform:uppercase}
+.case-id{font-size:10px;letter-spacing:.15em;color:#c84040;font-weight:700}
+
+.notice-hdr{font-size:10px;letter-spacing:.35em;color:#4a5568;text-transform:uppercase;margin:0 0 .5rem}
+.summons-title{
+  font-size:11px;letter-spacing:.3em;color:#8a9ab0;text-transform:uppercase;
+  margin:0 0 .9rem;border:1px solid #1e2530;padding:.45rem 1.2rem;display:inline-block;
+}
+
+.recipient-block{
+  border:1px solid #2a3040;padding:.95rem 1.1rem;margin:.9rem 0;
+  text-align:left;position:relative;
+}
+.recipient-block::before{
+  content:'DESTINATARIO';position:absolute;top:-8px;left:10px;
+  background:#0a0c10;padding:0 6px;
+  font-size:8px;letter-spacing:.2em;color:#4a5568;
+}
+.r-name{
+  font-size:32px;letter-spacing:.05em;color:#e8eef5;
+  font-family:Georgia,serif;font-style:italic;margin:.2rem 0 .15rem;line-height:1.1;
+}
+.r-charge{font-size:10px;letter-spacing:.15em;color:#c84040;text-transform:uppercase}
+
+.div-line{border:none;border-top:1px solid #1e2530;margin:.9rem 0}
+.div-dots{text-align:center;font-size:11px;color:#2a3040;letter-spacing:.3em;margin:-.5rem 0 .45rem}
+
+.case-label{font-size:9px;letter-spacing:.3em;color:#4a5568;text-transform:uppercase;margin:0 0 .35rem}
+.case-title{
+  font-size:36px;letter-spacing:.04em;
+  font-family:Georgia,'Times New Roman',serif;
+  font-weight:700;line-height:1;margin:0;
+}
+.case-title .m,.case-title .a{color:#c8d4e0}
+.case-title .p,.case-title .i{color:#c84040;animation:flicker-txt 6s ease-in-out infinite}
+.case-title .i{animation-delay:.5s}
+.case-sub{font-size:10px;letter-spacing:.18em;color:#4a5568;text-transform:uppercase;margin:.4rem 0 0}
+
+.body-text{
+  font-size:12.5px;line-height:1.8;color:#6a7888;
+  text-align:left;margin:.9rem 0;
+  border-left:2px solid #c84040;padding-left:.9rem;
+}
+
+.verdict-q{font-size:14px;letter-spacing:.06em;color:#8a9ab0;margin:.5rem 0;font-style:italic}
+.verdict-q strong{color:#c8d4e0;font-style:normal}
+
+.details{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:1px;margin:.9rem 0;border:1px solid #1e2530;
+}
+.det{padding:.55rem .7rem;border-right:1px solid #1e2530}
+.det:nth-child(even){border-right:none}
+.det:nth-child(3),.det:nth-child(4){border-top:1px solid #1e2530}
+.d-k{font-size:8px;letter-spacing:.2em;color:#4a5568;text-transform:uppercase;display:block;margin-bottom:.15rem}
+.d-v{font-size:13px;color:#a0aabb;display:block}
+
+.stamp{
+  display:inline-block;border:2.5px solid #c84040;color:#c84040;
+  padding:.35rem .9rem;font-size:12px;letter-spacing:.25em;text-transform:uppercase;
+  transform:rotate(-8deg);animation:stamp-in .6s cubic-bezier(.2,.8,.3,1.2) .5s both;
+  line-height:1.5;margin:.7rem 0;
+}
+
+.cta{
+  display:inline-block;margin:.65rem 0 0;padding:.42rem 1.5rem;
+  border:1px solid #c84040;color:#c84040;text-decoration:none;
+  font-family:'Courier New',monospace;font-size:10px;
+  letter-spacing:.25em;text-transform:uppercase;
+  transition:background .2s,color .2s;
+}
+.cta:hover{background:#c84040;color:#fff}
+
+.sign-off{font-size:12px;color:#3a4555;margin-top:.8rem;line-height:1.8}
+.sign-highlight{color:#8a9ab0}
+
+.bday-tag{
+  display:inline-block;background:#1a1030;border:1px solid #3a2a60;
+  padding:.28rem .9rem;font-size:9px;letter-spacing:.2em;
+  color:#9080c0;text-transform:uppercase;margin-bottom:.9rem;
+}
+</style>
+</head>
+<body>
+
+<div class="card">
+
+  <div class="top-bar">
+    <span class="sys-label">The Jury Experience · Fever · Bogotá</span>
+    <span class="case-id">CASO #2026-IA</span>
+  </div>
+
+  <div class="bday-tag">Regalo de cumpleaños</div>
+
+  <p class="notice-hdr">Convocatoria oficial</p>
+  <span class="summons-title">Usted ha sido seleccionada como jurado</span>
+
+  <div class="recipient-block">
+    <p class="r-name">Diana</p>
+    <span class="r-charge">Jurado N.° 1 · Sala Principal</span>
+  </div>
+
+  <hr class="div-line">
+  <div class="div-dots">· · · · · · · · · · · · · ·</div>
+
+  <p class="case-label">El caso que juzgará</p>
+  <p class="case-title">
+    <span class="m">MUERTE&nbsp;</span><span class="p">POR&nbsp;</span><span class="i">I</span><span class="a">A</span>
+  </p>
+  <p class="case-sub">Un drama judicial inmersivo &nbsp;·&nbsp; El público decide el veredicto</p>
+
+  <hr class="div-line">
+
+  <p class="body-text">
+    Un coche autónomo ha cobrado una vida. ¿El programador, el pasajero o la IA? No hay precedentes. No hay respuestas fáciles. <em>Tú decides.</em>
+  </p>
+
+  <p class="verdict-q">¿<strong>Culpable</strong> o <strong>no culpable</strong>?</p>
+
+  <div class="details">
+    <div class="det"><span class="d-k">Fecha</span><span class="d-v">Sáb 01 ago</span></div>
+    <div class="det"><span class="d-k">Hora</span><span class="d-v">17:00 h</span></div>
+    <div class="det"><span class="d-k">Ciudad</span><span class="d-v">Bogotá</span></div>
+    <div class="det"><span class="d-k">Rol</span><span class="d-v">El jurado</span></div>
+  </div>
+
+  <div class="stamp">Su presencia<br>es obligatoria</div>
+
+  <br>
+  <a class="cta" href="https://feverup.com/m/497820" target="_blank">Ver detalles del evento ↗</a>
+
+  <hr class="div-line">
+
+  <p class="sign-off">
+    Este es tu regalo de cumpleaños —<br>
+    <span class="sign-highlight">porque tú siempre sabes lo que es justo</span>
+  </p>
+
+</div>
+
+</body>
+</html>

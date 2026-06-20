@@ -2,180 +2,180 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Convocatoria para Diana — Muerte por IA · The Jury Experience</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>Convocatoria para Diana — Muerte por IA</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-body{background:#060810;display:flex;align-items:center;justify-content:center;min-height:100vh;padding:2rem;font-family:'Courier New',Courier,monospace}
+body{
+  background:#060810;
+  display:flex;align-items:center;justify-content:center;
+  min-height:100vh;padding:1rem;
+  font-family:'Courier New',Courier,monospace;
+}
 
 @keyframes scan{0%{top:-10%}100%{top:110%}}
-@keyframes stamp-in{0%{transform:rotate(-8deg) scale(2.2);opacity:0}60%{transform:rotate(-8deg) scale(.95);opacity:1}100%{transform:rotate(-8deg) scale(1);opacity:1}}
-@keyframes flicker-txt{0%,100%{opacity:1}92%{opacity:1}93%{opacity:.6}95%{opacity:1}97%{opacity:.7}98%{opacity:1}}
+@keyframes stamp-in{0%{transform:rotate(-6deg) scale(2);opacity:0}65%{transform:rotate(-6deg) scale(.97);opacity:1}100%{transform:rotate(-6deg) scale(1);opacity:1}}
+@keyframes flicker{0%,100%{opacity:1}91%{opacity:1}92%{opacity:.5}94%{opacity:1}96%{opacity:.65}98%{opacity:1}}
 
 .card{
-  position:relative;
   background:#0a0c10;
   border:1px solid #1e2530;
-  max-width:460px;width:100%;
-  padding:2.2rem 2.2rem 1.8rem;
+  width:100%;max-width:380px;
+  padding:1.3rem 1.1rem 1.1rem;
   text-align:center;
   color:#c8d0d8;
+  position:relative;
   overflow:hidden;
 }
 
 .card::before{
-  content:'';
-  position:absolute;
-  left:0;right:0;height:3px;
+  content:'';position:absolute;
+  left:0;right:0;height:2px;
   background:rgba(200,60,60,.07);
   animation:scan 4s linear infinite;
-  pointer-events:none;
-  z-index:10;
+  pointer-events:none;z-index:5;
 }
 
-.top-bar{
-  display:flex;align-items:center;justify-content:space-between;
-  margin-bottom:1.3rem;border-bottom:1px solid #1e2530;padding-bottom:.9rem;
-}
-.sys-label{font-size:10px;letter-spacing:.25em;color:#4a5568;text-transform:uppercase}
-.case-id{font-size:10px;letter-spacing:.15em;color:#c84040;font-weight:700}
+.cn{position:absolute;width:16px;height:16px;border-color:#c9a84c;border-style:solid;}
+.cn-tl{top:7px;left:7px;border-width:1.5px 0 0 1.5px}
+.cn-tr{top:7px;right:7px;border-width:1.5px 1.5px 0 0}
+.cn-bl{bottom:7px;left:7px;border-width:0 0 1.5px 1.5px}
+.cn-br{bottom:7px;right:7px;border-width:0 1.5px 1.5px 0}
 
-.notice-hdr{font-size:10px;letter-spacing:.35em;color:#4a5568;text-transform:uppercase;margin:0 0 .5rem}
-.summons-title{
-  font-size:11px;letter-spacing:.3em;color:#8a9ab0;text-transform:uppercase;
-  margin:0 0 .9rem;border:1px solid #1e2530;padding:.45rem 1.2rem;display:inline-block;
+.bday-tag{
+  display:inline-block;
+  background:#1a1030;border:1px solid #3a2a60;
+  padding:.22rem .8rem;
+  font-size:9px;letter-spacing:.18em;color:#9080c0;text-transform:uppercase;
+  margin-bottom:.75rem;
 }
 
-.recipient-block{
-  border:1px solid #2a3040;padding:.95rem 1.1rem;margin:.9rem 0;
-  text-align:left;position:relative;
+.notice{font-size:9px;letter-spacing:.3em;color:#4a5568;text-transform:uppercase;margin:0 0 .4rem}
+
+.summons{
+  font-size:9px;letter-spacing:.2em;color:#8a9ab0;text-transform:uppercase;
+  border:1px solid #1e2530;padding:.38rem .9rem;
+  display:inline-block;margin-bottom:.75rem;
 }
-.recipient-block::before{
-  content:'DESTINATARIO';position:absolute;top:-8px;left:10px;
-  background:#0a0c10;padding:0 6px;
+
+.recip{
+  border:1px solid #2a3040;padding:.75rem .85rem;
+  margin:.65rem 0;text-align:left;position:relative;
+}
+.recip::before{
+  content:'DESTINATARIO';position:absolute;top:-7px;left:8px;
+  background:#0a0c10;padding:0 5px;
   font-size:8px;letter-spacing:.2em;color:#4a5568;
 }
 .r-name{
-  font-size:32px;letter-spacing:.05em;color:#e8eef5;
-  font-family:Georgia,serif;font-style:italic;margin:.2rem 0 .15rem;line-height:1.1;
+  font-size:26px;color:#e8eef5;
+  font-family:Georgia,serif;font-style:italic;
+  margin:.15rem 0 .12rem;line-height:1.1;
 }
-.r-charge{font-size:10px;letter-spacing:.15em;color:#c84040;text-transform:uppercase}
+.r-charge{font-size:9px;letter-spacing:.12em;color:#c84040;text-transform:uppercase}
 
-.div-line{border:none;border-top:1px solid #1e2530;margin:.9rem 0}
-.div-dots{text-align:center;font-size:11px;color:#2a3040;letter-spacing:.3em;margin:-.5rem 0 .45rem}
+.divl{border:none;border-top:1px solid #1e2530;margin:.75rem 0}
+.divd{font-size:9px;color:#252d3a;letter-spacing:.25em;margin:-.48rem 0 .38rem}
 
-.case-label{font-size:9px;letter-spacing:.3em;color:#4a5568;text-transform:uppercase;margin:0 0 .35rem}
-.case-title{
-  font-size:36px;letter-spacing:.04em;
-  font-family:Georgia,'Times New Roman',serif;
-  font-weight:700;line-height:1;margin:0;
+.case-lbl{font-size:8px;letter-spacing:.25em;color:#4a5568;text-transform:uppercase;margin:0 0 .28rem}
+
+.title-block{margin:.1rem 0 .25rem;line-height:1.05}
+.t1{font-size:clamp(22px,8vw,30px);font-family:Georgia,serif;font-weight:700;color:#c8d4e0;display:block;letter-spacing:.06em}
+.t2{font-size:clamp(22px,8vw,30px);font-family:Georgia,serif;font-weight:700;display:block;letter-spacing:.06em}
+.t2 .p,.t2 .i{color:#c84040;animation:flicker 5s ease-in-out infinite}
+.t2 .i{animation-delay:.4s}
+.t2 .a{color:#c8d4e0}
+
+.case-sub{font-size:8px;letter-spacing:.12em;color:#4a5568;text-transform:uppercase;margin:.32rem 0 0}
+
+.body-txt{
+  font-size:11.5px;line-height:1.8;color:#6a7888;
+  text-align:left;margin:.7rem 0;
+  border-left:2px solid #c84040;padding-left:.75rem;
 }
-.case-title .m,.case-title .a{color:#c8d4e0}
-.case-title .p,.case-title .i{color:#c84040;animation:flicker-txt 6s ease-in-out infinite}
-.case-title .i{animation-delay:.5s}
-.case-sub{font-size:10px;letter-spacing:.18em;color:#4a5568;text-transform:uppercase;margin:.4rem 0 0}
 
-.body-text{
-  font-size:12.5px;line-height:1.8;color:#6a7888;
-  text-align:left;margin:.9rem 0;
-  border-left:2px solid #c84040;padding-left:.9rem;
-}
-
-.verdict-q{font-size:14px;letter-spacing:.06em;color:#8a9ab0;margin:.5rem 0;font-style:italic}
-.verdict-q strong{color:#c8d4e0;font-style:normal}
+.vq{font-size:12px;color:#8a9ab0;font-style:italic;margin:.4rem 0}
+.vq strong{color:#c8d4e0;font-style:normal}
 
 .details{
   display:grid;grid-template-columns:1fr 1fr;
-  gap:1px;margin:.9rem 0;border:1px solid #1e2530;
+  gap:1px;margin:.75rem 0;border:1px solid #1e2530;
 }
-.det{padding:.55rem .7rem;border-right:1px solid #1e2530}
-.det:nth-child(even){border-right:none}
+.det{padding:.5rem .6rem}
+.det:nth-child(odd){border-right:1px solid #1e2530}
 .det:nth-child(3),.det:nth-child(4){border-top:1px solid #1e2530}
-.d-k{font-size:8px;letter-spacing:.2em;color:#4a5568;text-transform:uppercase;display:block;margin-bottom:.15rem}
-.d-v{font-size:13px;color:#a0aabb;display:block}
+.dk{display:block;font-size:8px;letter-spacing:.18em;color:#4a5568;text-transform:uppercase;margin-bottom:.12rem}
+.dv{display:block;font-size:12px;color:#a0aabb}
 
 .stamp{
-  display:inline-block;border:2.5px solid #c84040;color:#c84040;
-  padding:.35rem .9rem;font-size:12px;letter-spacing:.25em;text-transform:uppercase;
-  transform:rotate(-8deg);animation:stamp-in .6s cubic-bezier(.2,.8,.3,1.2) .5s both;
-  line-height:1.5;margin:.7rem 0;
+  display:inline-block;
+  border:2px solid #c84040;color:#c84040;
+  padding:.28rem .75rem;
+  font-size:10px;letter-spacing:.2em;text-transform:uppercase;
+  transform:rotate(-6deg);
+  animation:stamp-in .6s cubic-bezier(.2,.8,.3,1.2) .5s both;
+  line-height:1.5;margin:.6rem 0;
 }
 
 .cta{
-  display:inline-block;margin:.65rem 0 0;padding:.42rem 1.5rem;
-  border:1px solid #c84040;color:#c84040;text-decoration:none;
-  font-family:'Courier New',monospace;font-size:10px;
-  letter-spacing:.25em;text-transform:uppercase;
-  transition:background .2s,color .2s;
+  display:block;margin:.6rem 0 0;
+  padding:.42rem;
+  border:1px solid #c84040;
+  color:#c84040;text-decoration:none;
+  font-size:9px;
+  letter-spacing:.2em;text-transform:uppercase;
 }
-.cta:hover{background:#c84040;color:#fff}
 
-.sign-off{font-size:12px;color:#3a4555;margin-top:.8rem;line-height:1.8}
-.sign-highlight{color:#8a9ab0}
-
-.bday-tag{
-  display:inline-block;background:#1a1030;border:1px solid #3a2a60;
-  padding:.28rem .9rem;font-size:9px;letter-spacing:.2em;
-  color:#9080c0;text-transform:uppercase;margin-bottom:.9rem;
-}
+.sign{font-size:11px;color:#3a4555;margin-top:.65rem;line-height:1.75}
+.sign span{color:#8a9ab0}
 </style>
 </head>
 <body>
-
 <div class="card">
-
-  <div class="top-bar">
-    <span class="sys-label">The Jury Experience · Fever · Bogotá</span>
-    <span class="case-id">CASO #2026-IA</span>
-  </div>
+  <div class="cn cn-tl"></div><div class="cn cn-tr"></div>
+  <div class="cn cn-bl"></div><div class="cn cn-br"></div>
 
   <div class="bday-tag">Regalo de cumpleaños</div>
 
-  <p class="notice-hdr">Convocatoria oficial</p>
-  <span class="summons-title">Usted ha sido seleccionada como jurado</span>
+  <p class="notice">Convocatoria oficial</p>
+  <span class="summons">Seleccionada como jurado</span>
 
-  <div class="recipient-block">
+  <div class="recip">
     <p class="r-name">Diana</p>
     <span class="r-charge">Jurado N.° 1 · Sala Principal</span>
   </div>
 
-  <hr class="div-line">
-  <div class="div-dots">· · · · · · · · · · · · · ·</div>
+  <hr class="divl">
+  <div class="divd">· · · · · · · · · · · ·</div>
 
-  <p class="case-label">El caso que juzgará</p>
-  <p class="case-title">
-    <span class="m">MUERTE&nbsp;</span><span class="p">POR&nbsp;</span><span class="i">I</span><span class="a">A</span>
+  <p class="case-lbl">El caso que juzgará</p>
+  <div class="title-block">
+    <span class="t1">MUERTE</span>
+    <span class="t2"><span class="p">POR</span> <span class="i">I</span><span class="a">A</span></span>
+  </div>
+  <p class="case-sub">Drama judicial inmersivo · Bogotá · El público decide</p>
+
+  <hr class="divl">
+
+  <p class="body-txt">
+    Un coche autónomo ha cobrado una vida. ¿El programador, el pasajero o la IA? No hay precedentes. <em>Tú decides.</em>
   </p>
-  <p class="case-sub">Un drama judicial inmersivo &nbsp;·&nbsp; El público decide el veredicto</p>
 
-  <hr class="div-line">
-
-  <p class="body-text">
-    Un coche autónomo ha cobrado una vida. ¿El programador, el pasajero o la IA? No hay precedentes. No hay respuestas fáciles. <em>Tú decides.</em>
-  </p>
-
-  <p class="verdict-q">¿<strong>Culpable</strong> o <strong>no culpable</strong>?</p>
+  <p class="vq">¿<strong>Culpable</strong> o <strong>no culpable</strong>?</p>
 
   <div class="details">
-    <div class="det"><span class="d-k">Fecha</span><span class="d-v">Sáb 01 ago</span></div>
-    <div class="det"><span class="d-k">Hora</span><span class="d-v">17:00 h</span></div>
-    <div class="det"><span class="d-k">Ciudad</span><span class="d-v">Bogotá</span></div>
-    <div class="det"><span class="d-k">Rol</span><span class="d-v">El jurado</span></div>
+    <div class="det"><span class="dk">Fecha</span><span class="dv">Sáb 01 ago</span></div>
+    <div class="det"><span class="dk">Hora</span><span class="dv">17:00 h</span></div>
+    <div class="det"><span class="dk">Ciudad</span><span class="dv">Bogotá</span></div>
+    <div class="det"><span class="dk">Tu rol</span><span class="dv">El jurado</span></div>
   </div>
 
   <div class="stamp">Su presencia<br>es obligatoria</div>
 
-  <br>
   <a class="cta" href="https://feverup.com/m/497820" target="_blank">Ver detalles del evento ↗</a>
 
-  <hr class="div-line">
-
-  <p class="sign-off">
-    Este es tu regalo de cumpleaños —<br>
-    <span class="sign-highlight">porque tú siempre sabes lo que es justo</span>
-  </p>
-
+  <hr class="divl">
+  <p class="sign">Este es tu regalo —<br><span>porque tú siempre sabes lo que es justo</span></p>
 </div>
-
 </body>
 </html>
